@@ -2,26 +2,25 @@
 using namespace std;
 void Calc(vector<int> &nums, int target)
 {
-    int size = nums.size();
+    int size = nums.size(), index = 0;
     unordered_map<int, int> mpp;
     for (int i = 0; i < size; i++)
     {
-        int first = nums[i];
-        int second = target - first;
-        if (mpp.find(second) != mpp.end())
+        int second = target - nums[i];
+        if (mpp.find(second) != mpp.end())//O(1)
         {
-            cout << i << " and " << mpp[second];
+            cout << i << " " << mpp[second];
         }
         else
         {
-            mpp[first] = i;
+            mpp.insert({nums[i], i});
         }
     }
 }
 int main()
 {
     vector<int> nums = {2, 7, 11, 15};
-    int target = 9;
+    int target = 18;
     Calc(nums, target);
     return 0;
 }
