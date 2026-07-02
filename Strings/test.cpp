@@ -1,20 +1,17 @@
-#include <iostream>
-#include<algorithm>
+#include <bits/stdc++.h>
 using namespace std;
-
-int maxProduct(int n)
-{
-    string str = "";
-    for (int i = 0; n != 0; i++)
-    {
-        str[i] = n % 10;
-        n = n / 10;
-    }
-    sort(str.begin(), str.end());
-    int size = str.length();
-    return ((int)str[size - 1] * (int)str[size - 2]);
-}
 int main()
 {
+    vector<string> pattern = {"a", "b", "c"};
+    string part = "aaaaaabbbbb";
+    int count = 0;
+    for (int i = 0; i < pattern.size(); i++)
+    {
+        if (part.find(pattern[i]) < part.length())
+        {
+            count++;
+        }
+    }
+    cout << count;
     return 0;
 }
